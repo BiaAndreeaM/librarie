@@ -1,0 +1,36 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.3'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.practica'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation("org.projectlombok:lombok:1.18.38")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.5.3")
+//	implementation("org.springframework.boot:spring-boot-starter-security:3.5.3")
+//	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server:3.5.3")
+	implementation("com.h2database:h2:2.3.232")
+	implementation("com.google.code.gson:gson:2.13.1")
+	implementation("com.fasterxml.jackson.core:jackson-databind:2.19.1")
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
